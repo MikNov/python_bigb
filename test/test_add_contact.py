@@ -10,11 +10,11 @@ def app(request):
     return fixture
 
 def test_contact(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.add_new_contact(Contact(firstname="First", lastname="Last", address="yes", home_phone="no"))
-    app.logout()
+    app.session.logout()
 
 def test_empty_contact(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.add_new_contact(Contact(firstname="", lastname="", address="", home_phone=""))
-    app.logout()
+    app.session.logout()
