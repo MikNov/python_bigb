@@ -54,7 +54,12 @@ class Application:
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
-    def add_new_contact(self, wd, contact):
+    def return_to_home_page(self):
+        wd = self.wd
+        wd.find_element_by_link_text("home").click()
+
+    def add_new_contact(self, contact):
+        wd = self.wd
         self.open_home_page()
         # init contact creation
         wd.find_element_by_link_text("add new").click()
